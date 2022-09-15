@@ -16,9 +16,11 @@ public class SendThread {
 	
 	
 	private int packetSizeMulti=1;
-	private int sleepMsPerPacket=10;  //越小发包越快，9时为正常数据量，1时近似看做增大十倍
+	private int sleepMsPerPacket=9;  //越小发包越快，9时为正常数据量，1时近似看做增大十倍
 	private int sleepMsPerLoop=1; //ms
-	
+	public static int num1 = 0;
+	public static int num2 = 0;
+
 	public void sendData(Link link,int dataLen,byte equipID){
 		
 		dataLen*=packetSizeMulti;
@@ -81,94 +83,114 @@ public class SendThread {
 						t++;
 						if (UI.Im==0){
 							if (t%5==0){
-								sendData(link,107,(byte)3);
+								sendData(link, 107, (byte) 3);
+								num1 += 107;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%5==0){
-								sendData(link,174,(byte)3);
+								sendData(link, 174, (byte) 3);
+								num1 += 174;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%5==0){
-								sendData(link,120,(byte)3);
+								sendData(link, 120, (byte) 3);
+								num1 += 120;
 							}
 							Thread.sleep(sleepMsPerPacket);
-//							if (t%6==0){
-//								sendData(link,1006,(byte)1);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-							if (t%15==0){
-								sendData(link,116,(byte)3);
+							if (t%6==0){
+								sendData(link, 1006, (byte) 1);
+								num1 += 1006;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%15==0){
-								sendData(link,121,(byte)3);
+								sendData(link, 116, (byte) 3);
+								num1 += 116;
 							}
 							Thread.sleep(sleepMsPerPacket);
-//							if (t%30==0){
-//								sendData(link,98,(byte)4);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%200==0){
-//								sendData(link,1392,(byte)2); //1492
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%200==0){
-//								sendData(link,90,(byte)6);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%300==0){
-//								sendData(link,5902,(byte)5);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%600==0){
-//								sendData(link,160,(byte)4);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-							Thread.sleep(50);
+							if (t%15==0){
+								sendData(link, 121, (byte) 3);
+								num1 += 121;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%30==0){
+								sendData(link, 98, (byte) 4);
+								num1 += 98;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%200==0){
+								sendData(link, 1492, (byte) 2); //1492
+								num1 += 1492;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%200==0){
+								sendData(link, 90, (byte) 6);
+								num1 += 90;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%300==0){
+								sendData(link, 5902, (byte) 5);
+								num1 += 5902;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%600==0){
+								sendData(link, 160, (byte) 4);
+								num1 += 160;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							Thread.sleep(1);
 						}
 						else{
 							if (t%2==0){
-								sendData(link,120,(byte)3);
-							}
-							Thread.sleep(sleepMsPerPacket);
-//							if (t%6==0){
-//								sendData(link,167,(byte)1);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-							if (t%6==0){
-								sendData(link,107,(byte)3);
+								sendData(link, 120, (byte) 3);
+								num2 += 120;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%6==0){
-								sendData(link,126,(byte)3);
+								sendData(link, 167, (byte) 1);
+								num2 += 167;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%6==0){
+								sendData(link, 107, (byte) 3);
+								num2 += 107;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%6==0){
+								sendData(link, 126, (byte) 3);
+								num2 += 126;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%16==0){
-								sendData(link,116,(byte)3);
+								sendData(link, 116, (byte) 3);
+								num2 += 116;
 							}
 							Thread.sleep(sleepMsPerPacket);
 							if (t%16==0){
-								sendData(link,121,(byte)3);
+								sendData(link, 121, (byte) 3);
+								num2 += 121;
 							}
 							Thread.sleep(sleepMsPerPacket);
-//							if (t%30==0){
-//								sendData(link,241,(byte)4);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%200==0){
-//								sendData(link,152,(byte)2);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%200==0){
-//								sendData(link,90,(byte)6);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-//							if (t%300==0){
-//								sendData(link,56238,(byte)5);
-//							}
-//							Thread.sleep(sleepMsPerPacket);
-							Thread.sleep(50);
-//							Thread.sleep(sleepMsPerPacket);
+							if (t%30==0){
+								sendData(link, 241, (byte) 4);
+								num2 += 241;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%200==0){
+								sendData(link, 152, (byte) 2);
+								num2 += 152;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%200==0){
+								sendData(link, 90, (byte) 6);
+								num2 += 90;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							if (t%300==0){
+								sendData(link, 56238, (byte) 5);
+								num2 += 56238;
+							}
+							Thread.sleep(sleepMsPerPacket);
+							Thread.sleep(10);
 						}
 //						long loopRunTime=System.currentTimeMillis()-startTime;
 //						Thread.sleep(sleepMsPerLoop-loopRunTime);
